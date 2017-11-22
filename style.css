@@ -1,0 +1,10 @@
+body {
+  background-color: rgb(142, 142, 142);
+}
+h1 {
+  font-family: 'Wire One', sans-serif;
+  font-size: 200px;
+  letter-spacing: 3px;
+  color: rgb(223, 223, 223);
+  text-align: center;
+}
