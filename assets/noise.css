@@ -256,7 +256,7 @@ p {
   height: 1em;
   width: 1em;
   border-radius: 1em;
-  background: rgba(254, 216, 216, 0.75);
+  background: rgba(216, 254, 221, 0.75);
   box-shadow: 0 0.1em 0.3em rgba(0,0,0,0.3);
   -webkit-transition: all 300ms;
      -moz-transition: all 300ms;

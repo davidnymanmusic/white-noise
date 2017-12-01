@@ -29,21 +29,32 @@ document.querySelector('#playToggle1').addEventListener('change', function(e) {
 });
 
 var sound01 = new Tone.Oscillator({
-  "partials": [6, 5, 4, 3, 2, 1],
+  "partials": [11, 1],
   "type": "custom",
-  "frequency": 426.7,
+  "frequency": 320,
   "volume": -25
 }).toMaster()
+
+var sound02 = new Tone.Oscillator({
+  "partials": [11, 8,7,6,3,2, 1],
+  "type": "custom",
+  "frequency": 426.7,
+  "volume": -30
+}).toMaster()
+
 
 document.querySelector('#playToggle2').addEventListener('change', function(e) {
   if (e.target.checked) {
     sound01.start()
+    sound02.start()
   } else {
     sound01.stop()
+    sound02.stop()
   }
 });
 var vol02 = document.querySelector('#volume2')
 vol02.addEventListener('input', function() {
   var vol = document.querySelector('#volume2').value;
   sound01.volume.value = vol;
+  sound02.volume.value = vol;
 })
