@@ -8,3 +8,6 @@ h1 {
   color: rgb(223, 223, 223);
   text-align: center;
 }
+a {
+  text-decoration-color: white;
+}

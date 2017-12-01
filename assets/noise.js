@@ -10,3 +10,20 @@ $(document).ready(function(){
        });
 
 });
+
+var pinkNoise = new Tone.Noise("pink").toMaster();
+var vol01 = document.querySelector('#volume1')
+
+vol01.addEventListener('input', function() {
+  var vol = document.querySelector('#volume1').value;
+  pinkNoise.volume.value = vol;
+})
+
+
+document.querySelector('.playToggle').addEventListener('change', function(e){
+	if (e.target.checked){
+  	pinkNoise.start()
+  } else {
+  	pinkNoise.stop()
+  }
+});
