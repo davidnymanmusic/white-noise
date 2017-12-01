@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="assets/noise.css">
   <script type="text/javascript" src="assets/jquery-2.1.4.min.js">
   </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/tone/0.12.17/Tone.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/0.12.17/Tone.js"></script>
 </head>
 
 <body>
@@ -18,19 +18,23 @@
   <div class="volbox">
     <div id='content'>
 
-    <div id="slidecontainer">
-      Noise<br>
-
-        <label class="switch"><input type='checkbox' class='playToggle'><div></div>
-  </label>
+      <div id="slidecontainer">
+        Noise
         <br>
-      <input id="volume1" type="range" max="0" min="-50" value="-25" step="0.025"><br> Nature
+        <label class="switch"><input type='checkbox' id='playToggle1'><div></div></label>
+        <br>
+        <input id="volume1" type="range" max="0" min="-50" value="-8" step="0.025">
+        <br>
+        Tone
+        <br>
+        <label class="switch"><input type='checkbox' id='playToggle2'><div></div></label>
       <br>
-      <input id="volume" type="range" max="0" min="-50" value=".7" step="0.025"><br> Tones
+      <input id="volume2" type="range" max="0" min="-50" value=".7" step="0.025"><br> Nature
       <br>
       <input id="volume" type="range" max="0" min="-50" value=".7" step="0.025">
     </div>
   </div>
+
   <div id="container2">
 <button id="buttonSettings">SETTINGS</button>
 <div id="set">
