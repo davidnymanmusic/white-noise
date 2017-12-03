@@ -15,7 +15,6 @@ $(document).ready(function() {
   $("#about").dblclick(function() {
     $("#info").hide("slow");
   });
-
 });
 
 
