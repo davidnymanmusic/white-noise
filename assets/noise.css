@@ -27,6 +27,11 @@ p {
   margin-top: 1%;
 }
 
+.q1 {
+  font-family: 'Codystar', cursive;
+  font-size: 38px;
+}
+
 [data-tooltip] {
   position: relative;
   z-index: 2;
