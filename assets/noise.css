@@ -22,6 +22,72 @@ body.light-mode button {
   color: #111;
 }
 
+p {
+  margin-bottom: 1%;
+  margin-top: 1%;
+}
+
+[data-tooltip] {
+  position: relative;
+  z-index: 2;
+  cursor: help;
+}
+
+/* Hide the tooltip content by default */
+[data-tooltip]:before,
+[data-tooltip]:after {
+  visibility: hidden;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: progid: DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Position tooltip above the element */
+[data-tooltip]:before {
+  position: absolute;
+  bottom: 150%;
+  left: 50%;
+  margin-bottom: 5px;
+  margin-left: -140px;
+  padding: 10px;
+  width: 260px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  background-color: #000;
+  background-color: rgba(231, 231, 231, 0.9);
+  color: rgb(60, 60, 60);
+  content: attr(data-tooltip);
+  text-align: center;
+  font-size: 18px;
+  line-height: 1.2;
+}
+
+/* Triangle hack to make tooltip look like a speech bubble */
+[data-tooltip]:after {
+  position: absolute;
+  bottom: 150%;
+  left: 50%;
+  margin-left: -5px;
+  width: 0;
+  border-top: 5px solid rgb(70, 70, 70);
+  border-top: 5px solid hsla(0, 0%, 20%, 0.9);
+  border-right: 5px solid transparent;
+  border-left: 5px solid transparent;
+  content: " ";
+  font-size: 0;
+  line-height: 0;
+}
+
+/* Show tooltip content on hover */
+[data-tooltip]:hover:before,
+[data-tooltip]:hover:after {
+  visibility: visible;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+  filter: progid: DXImageTransform.Microsoft.Alpha(Opacity=100);
+  opacity: 1;
+}
 
 
 #dark {
@@ -415,7 +481,7 @@ p {
     display: inline-block;
     border-radius: 3px;
     background: rgba(255, 255, 255, 0);
-    text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.5);
+    /*text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.5);*/
     color: #777;
     font-size: 30px;
     transition: color linear 0.15s;
@@ -435,5 +501,9 @@ p {
 @media (max-width: 600px) {
   h1 {
     font-size: 50px;
+  }
+  #darklight {
+     margin: 0 auto;
+     font-size: 18px;
   }
 }
