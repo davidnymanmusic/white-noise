@@ -123,7 +123,7 @@ var thirdEye = new Tone.Oscillator({
 var thirdEye2 = new Tone.Oscillator({
   "type": "sine",
   "frequency": 83,
-  "volume": -30
+  "volume": -25
 }).toMaster();
 
 
