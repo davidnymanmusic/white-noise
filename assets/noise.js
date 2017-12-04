@@ -17,8 +17,6 @@ $(document).ready(function() {
   });
 });
 
-
-
 $("#dark").click(function() {
   var text = $('#dark').text();
   $('#dark').text(
@@ -87,38 +85,35 @@ document.querySelector('#playTogglePink').addEventListener('change', function(e)
   }
 });
 
-
-
-
-var sound01 = new Tone.Oscillator({
-  "partials": [11, 1],
-  "type": "custom",
-  "frequency": 320,
-  "volume": -25
-}).toMaster();
-
-var sound02 = new Tone.Oscillator({
-  "partials": [11, 8, 7, 6, 3, 2, 1],
-  "type": "custom",
-  "frequency": 426.7,
-  "volume": -30
-}).toMaster();
+// var sound01 = new Tone.Oscillator({
+//   "partials": [11, 1],
+//   "type": "custom",
+//   "frequency": 320,
+//   "volume": -25
+// }).toMaster();
+//
+// var sound02 = new Tone.Oscillator({
+//   "partials": [11, 8, 7, 6, 3, 2, 1],
+//   "type": "custom",
+//   "frequency": 426.7,
+//   "volume": -30
+// }).toMaster();
 
 var rootChakra = new Tone.Oscillator({
   "type": "sine",
   "frequency": 194.18,
-  "volume": -30
+  "volume": -25
 }).toMaster();
 var rootChakra2 = new Tone.Oscillator({
   "type": "sine",
   "frequency": 396,
-  "volume": -30
+  "volume": -25
 }).toMaster();
 
 var thirdEye = new Tone.Oscillator({
   "type": "sine",
   "frequency": 852,
-  "volume": -30
+  "volume": -25
 }).toMaster();
 var thirdEye2 = new Tone.Oscillator({
   "type": "sine",
@@ -144,7 +139,7 @@ document.querySelector('#playToggle2').addEventListener('change', function(e) {
 
 var sound = new Howl({
   src: ['https://k003.kiwi6.com/hotlink/rhsa9gtye9/ocean_2.mp3'],
-  volume: 0.8,
+  volume: 0.5,
 });
 
 
@@ -205,8 +200,8 @@ vol02.addEventListener('input', function() {
   // sound02.volume.value = vol;
 });
 
-var slider01 = document.querySelector('#Slider01');
-slider01.addEventListener('input', function() {
-  var freq = document.querySelector('#fader01').value;
-  sound01.frequency.value = freq;
-});
+// var slider01 = document.querySelector('#Slider01');
+// slider01.addEventListener('input', function() {
+//   var freq = document.querySelector('#fader01').value;
+//   sound01.frequency.value = freq;
+// });
