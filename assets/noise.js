@@ -18,18 +18,44 @@ $(document).ready(function() {
     $('.toggle-nav').click(function(e) {
       $(this).toggleClass('active');
       $('.menu ul').toggleClass('active');
-
       e.preventDefault();
     });
   });
 });
 
+const { Path, Point } = paper;
 
-// $("#dark").click(function() {
-//   var text = $('#dark').text();
-//   $('#dark').text(
-//     text == "Light Mode" ? "Dark Mode" : "Light Mode");
-// });
+const offset = 10;
+const segments = 42;
+const strokeWidth = 1;
+const strokeColor = 'rgba(232, 232, 232, 0.55)';
+
+const canvas = document.querySelector('.squig');
+paper.setup(canvas);
+const view = paper.view;
+
+const path = new Path();
+path.strokeColor = strokeColor;
+path.strokeWidth = strokeWidth;
+path.strokeCap = 'round';
+
+for (let i = 0; i <= segments; i++) {
+  let width = view.size.width - (offset * 2);
+  path.add(new Point((i / segments * width + offset), view.size.height / 2));
+}
+
+path.onFrame = (e) => {
+	for (var i = 0; i <= segments; i++) {
+    let height = 8;
+    let sinus = Math.sin(e.time * 8 + i);
+		path.segments[i].point.y = sinus * height + 25;
+    path.smooth({
+      type: 'continuous'
+    });
+	}
+}
+
+paper.view.draw();
 
 function toggleDarkLight() {
   var body = document.getElementById("body");
@@ -78,13 +104,18 @@ document.querySelector('#playTogglePink').addEventListener('change', function(e)
 
 var rootChakra = new Tone.Oscillator({
   "type": "sine",
-  "frequency": 194.18,
+  "frequency": 126.22,
   "volume": -25
 }).toMaster();
 
 var rootChakra2 = new Tone.Oscillator({
   "type": "sine",
   "frequency": 396,
+  "volume": -25
+}).toMaster();
+var rootChakra3 = new Tone.Oscillator({
+  "type": "sine",
+  "frequency": 194.18,
   "volume": -25
 }).toMaster();
 
@@ -100,14 +131,32 @@ var thirdEye2 = new Tone.Oscillator({
   "volume": -25
 }).toMaster();
 
+var sacral = new Tone.Oscillator({
+  "type": "sine",
+  "frequency": 417,
+  "volume": -25
+}).toMaster();
+
+var sacral2 = new Tone.Oscillator({
+  "type": "sine",
+  "frequency": 221.23,
+  "volume": -25
+}).toMaster();
+
 
 document.querySelector('#playToggle2').addEventListener('change', function(e) {
   if (e.target.checked) {
     rootChakra.start();
     rootChakra2.start();
+    rootChakra3.start();
   } else {
     rootChakra.stop();
     rootChakra2.stop();
+    rootChakra3.stop();
+    thirdEye.stop();
+    thirdEye2.stop();
+    sacral.stop();
+    sacral2.stop();
   }
 });
 
@@ -130,9 +179,11 @@ document.querySelector('#chakraToggle').addEventListener('change', function(e) {
   if (e.target.checked) {
     rootChakra.start();
     rootChakra2.start();
+    rootChakra3.start();
   } else {
     rootChakra.stop();
     rootChakra2.stop();
+    rootChakra3.stop();
   }
 });
 
@@ -140,11 +191,21 @@ document.querySelector('#chakraToggle1').addEventListener('change', function(e) 
   if (e.target.checked) {
     thirdEye.start();
     thirdEye2.start();
-    rootChakra.stop();
-    rootChakra2.stop();
+
   } else {
     thirdEye.stop();
     thirdEye2.stop();
+  }
+});
+
+document.querySelector('#chakraToggle2').addEventListener('change', function(e) {
+  if (e.target.checked) {
+    sacral.start();
+    sacral2.start();
+
+  } else {
+    sacral.stop();
+    sacral2.stop();
   }
 });
 
@@ -163,8 +224,11 @@ vol02.addEventListener('input', function() {
   var vol = document.querySelector('#volume2').value;
   rootChakra.volume.value = vol;
   rootChakra2.volume.value = vol;
+  rootChakra3.volume.value = vol;
   thirdEye.volume.value = vol;
   thirdEye2.volume.value = vol;
+  sacral.volume.value = vol;
+  sacral2.volume.value = vol;
 });
 
 var vol03 = document.querySelector('#volume3');
@@ -181,3 +245,9 @@ slider01.addEventListener('input', function() {
   var freq = document.querySelector('#fader01').value;
   sound01.frequency.value = freq;
 });
+
+// $("#dark").click(function() {
+//   var text = $('#dark').text();
+//   $('#dark').text(
+//     text == "Light Mode" ? "Dark Mode" : "Light Mode");
+// });

@@ -6,12 +6,15 @@
   <title>white noise</title>
   <link href="https://fonts.googleapis.com/css?family=Codystar|Sirin+Stencil" rel="stylesheet">
   <link rel="stylesheet" href="assets/noise.css">
-  <script type="text/javascript" src="assets/jquery-2.1.4.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/0.12.17/Tone.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.5/howler.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/paper.js/0.9.24/paper-full.min.js"></script>
 </head>
 
 <body id="body" class="dark-mode">
+
+  <div id="Content" class="FullScreen">
   <nav class="menu">
     <ul class="active">
       <li class="current-item"><a href="noise.html">Home</a></li>
@@ -20,18 +23,18 @@
     </ul>
 
     <a class="toggle-nav" href="#"><span id="burger">&#9776;</span></a>
+        </div>
   </nav>
 
   <div id="info">
     <p class="q1">Galvanize Q1 Project</p>
     <br> g72 web development
-    <br> HTML5 | CSS3 | JQUERY | TONE.JS | HOWLER.JS
+    <br> HTML5 | CSS3 | JQUERY | TONE.JS | HOWLER.JS | PAPER.JS
   </div>
 
   <div id="container">
     <h1>WHITE NOISE</h1>
   </div>
-
 
   <div class="volbox">
     <div id='content'>
@@ -69,22 +72,30 @@
     <div id="container2">
       <span><button id="buttonSettings">CUSTOMIZE</button></span>
       <div id="set">
-        <p>White</p>
+        <p data-tooltip="Concentration">White</p>
         <label class="switch"><input type='checkbox' id='playToggleWhite' checked><div></div></label>
-        <p>Pink</p>
+        <p data-tooltip="Sleep">Pink</p>
         <label class="switch"><input type='checkbox' id='playTogglePink' checked><div></div></label>
-        <p>Brown</p>
+        <p data-tooltip="Relax">Brown</p>
         <label class="switch"><input type='checkbox' id='playToggleBrown' checked><div></div></label>
         <br>
-        <p>ROOT CHAKRA</p>
-        <label class="switch"><input type='checkbox' id='chakraToggle'><div></div></label>
-        <p>THIRD EYE CHAKRA</p>
+        <p data-tooltip="Survival">ROOT CHAKRA</p>
+        <label class="switch"><input type='checkbox' id='chakraToggle' checked><div></div></label>
+        <br>
+        <p data-tooltip="Life energy, creativity">SACRAL CHAKRA</p>
+        <label class="switch"><input type='checkbox' id='chakraToggle2'><div></div></label>
+        <br>
+        <p data-tooltip="Insight, intellect">THIRD EYE CHAKRA</p>
         <label class="switch"><input type='checkbox' id='chakraToggle1'><div></div></label>
+        <br>
+
       </div>
     </div>
     <div id="footer">
       © David Nyman
     </div>
+    </div>
+    <canvas class="squig" resize></canvas>
     <script type="text/javascript" src="assets/noise.js"></script>
 </body>
 
