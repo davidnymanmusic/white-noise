@@ -6,24 +6,27 @@
   <title>white noise</title>
   <link href="https://fonts.googleapis.com/css?family=Codystar|Sirin+Stencil" rel="stylesheet">
   <link rel="stylesheet" href="assets/noise.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/0.12.17/Tone.js"></script>
+  <!-- <script type="text/javascript" src="assets/jquery-2.1.4.min.js"></script> -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/0.12.17/Tone.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.5/howler.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/paper.js/0.9.24/paper-full.min.js"></script>
 </head>
 
 <body id="body" class="dark-mode">
-
+  <!-- <input type="checkbox" id="checkbox1">checkbox</input>
+  <button type="button" onClick="save()">save</button> -->
+<button id="panicButton" type="button" onClick="save()"><a href="javascript:location.reload(true)" id="resfresh">PANIC</a></button>
   <div id="Content" class="FullScreen">
-  <nav class="menu">
-    <ul class="active">
-      <li class="current-item"><a href="noise.html">Home</a></li>
-      <li id="about"><a href="#">About</a></li>
-      <li><a href="mailto:davenyman@gmail.com">Contact</a></li>
-    </ul>
+    <nav class="menu">
+      <ul class="active">
+        <li class="current-item"><a href="noise.html">Home</a></li>
+        <li id="about"><a href="#">About</a></li>
+        <li id="contact"><a href="mailto:davenyman@gmail.com">Contact</a></li>
+      </ul>
 
-    <a class="toggle-nav" href="#"><span id="burger">&#9776;</span></a>
-        </div>
+      <a class="toggle-nav" href="#"><span id="burger">&#9776;</span></a>
+  </div>
   </nav>
 
   <div id="info">
@@ -63,10 +66,13 @@
         <br>
 
       </div>
+      <div id="theme">
+        <p id="darklight">LIGHT</p>
+        <label class="switch" data-tooltip="Change theme"><input type='checkbox' id='darkToggle' onclick="toggleDarkLight()"><div></div></label>
+        <p id="darklight">DARK</p>
+      </div>
 
-      <p id="darklight">LIGHT</p>
-      <label class="switch" data-tooltip="Change theme"><input type='checkbox' id='darkToggle' onclick="toggleDarkLight()"><div></div></label>
-      <p id="darklight">DARK</p>
+
     </div>
 
     <div id="container2">
@@ -79,13 +85,20 @@
         <p data-tooltip="Relax">Brown</p>
         <label class="switch"><input type='checkbox' id='playToggleBrown' checked><div></div></label>
         <br>
-        <p data-tooltip="Survival">ROOT CHAKRA</p>
+        <hr class="style-three">
+        <br>
+        <p>CHAKRAS</p>
+        <br>
+        <p data-tooltip="Survival">ROOT</p>
         <label class="switch"><input type='checkbox' id='chakraToggle' checked><div></div></label>
         <br>
-        <p data-tooltip="Life energy, creativity">SACRAL CHAKRA</p>
+        <p data-tooltip="Life energy, creativity">SACRAL</p>
         <label class="switch"><input type='checkbox' id='chakraToggle2'><div></div></label>
         <br>
-        <p data-tooltip="Insight, intellect">THIRD EYE CHAKRA</p>
+        <p data-tooltip="Personal power, self-esteem">solar</p>
+        <label class="switch"><input type='checkbox' id='chakraToggle3'><div></div></label>
+        <br>
+        <p data-tooltip="Insight, intellect">THIRD EYE</p>
         <label class="switch"><input type='checkbox' id='chakraToggle1'><div></div></label>
         <br>
 
@@ -94,9 +107,9 @@
     <div id="footer">
       © David Nyman
     </div>
-    </div>
-    <canvas class="squig" resize></canvas>
-    <script type="text/javascript" src="assets/noise.js"></script>
+  </div>
+  <canvas class="squig" resize></canvas>
+  <script type="text/javascript" src="assets/noise.js"></script>
 </body>
 
 </html>

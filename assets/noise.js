@@ -15,6 +15,7 @@ $(document).ready(function() {
   $("#about").dblclick(function() {
     $("#info").hide("slow");
 
+
     $('.toggle-nav').click(function(e) {
       $(this).toggleClass('active');
       $('.menu ul').toggleClass('active');
@@ -22,6 +23,36 @@ $(document).ready(function() {
     });
   });
 });
+
+
+//
+// function save() {
+// 	var checkbox = document.getElementById("checkbox1");
+//     localStorage.setItem("checkbox1", checkbox.checked);
+//     var checkbox1 = document.getElementById("playToggle1");
+//       localStorage.setItem("playToggle1", checkbox.checked);
+//     var checkbox2 = document.getElementById("playToggle2");
+//       localStorage.setItem("playToggle2", checkbox.checked);
+//     var checkbox3 = document.getElementById("playToggle3");
+//       localStorage.setItem("playToggle3", checkbox.checked);
+//     var checkbox4 = document.getElementById("darkToggle");
+//       localStorage.setItem("darkToggle", checkbox.checked);
+// }
+//
+// //for loading
+// var checked = JSON.parse(localStorage.getItem("checkbox1"));
+//     document.getElementById("checkbox1").checked = checked;
+// var checked1 = JSON.parse(localStorage.getItem("playToggle1"));
+//     document.getElementById("playToggle1").checked = checked;
+// var checked2 = JSON.parse(localStorage.getItem("playToggle2"));
+//     document.getElementById("playToggle2").checked = checked;
+// var checked3 = JSON.parse(localStorage.getItem("playToggle3"));
+//     document.getElementById("playToggle3").checked = checked;
+// var checked4 = JSON.parse(localStorage.getItem("playToggle3"));
+//     document.getElementById("darkToggle").checked = checked;
+//
+
+
 
 const { Path, Point } = paper;
 
@@ -142,6 +173,17 @@ var sacral2 = new Tone.Oscillator({
   "frequency": 221.23,
   "volume": -25
 }).toMaster();
+var solar = new Tone.Oscillator({
+  "type": "sine",
+  "frequency": 528,
+  "volume": -25
+}).toMaster();
+
+var solar2 = new Tone.Oscillator({
+  "type": "sine",
+  "frequency": 147.85,
+  "volume": -24
+}).toMaster();
 
 
 document.querySelector('#playToggle2').addEventListener('change', function(e) {
@@ -157,12 +199,15 @@ document.querySelector('#playToggle2').addEventListener('change', function(e) {
     thirdEye2.stop();
     sacral.stop();
     sacral2.stop();
+    solar.stop();
+    solar2.stop();
   }
 });
 
 var sound = new Howl({
   src: ['https://k003.kiwi6.com/hotlink/rhsa9gtye9/ocean_2.mp3'],
   volume: 0.8,
+  loop: 1,
 });
 
 
@@ -208,6 +253,16 @@ document.querySelector('#chakraToggle2').addEventListener('change', function(e) 
     sacral2.stop();
   }
 });
+document.querySelector('#chakraToggle3').addEventListener('change', function(e) {
+  if (e.target.checked) {
+    solar.start();
+    solar2.start();
+
+  } else {
+    solar.stop();
+    solar2.stop();
+  }
+});
 
 var vol01 = document.querySelector('#volume1')
 
@@ -229,6 +284,8 @@ vol02.addEventListener('input', function() {
   thirdEye2.volume.value = vol;
   sacral.volume.value = vol;
   sacral2.volume.value = vol;
+  solar.volume.value = vol;
+  solar2.volume.value = vol;
 });
 
 var vol03 = document.querySelector('#volume3');
