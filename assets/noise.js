@@ -94,6 +94,7 @@ function toggleDarkLight() {
   body.className = currentClass == "dark-mode" ? "light-mode" : "dark-mode";
 }
 
+
 var pinkNoise = new Tone.Noise("pink").toMaster();
 document.querySelector('#playToggle1').addEventListener('change', function(e) {
   if (e.target.checked) {
@@ -207,7 +208,7 @@ document.querySelector('#playToggle2').addEventListener('change', function(e) {
 var sound = new Howl({
   src: ['https://k003.kiwi6.com/hotlink/rhsa9gtye9/ocean_2.mp3'],
   volume: 0.8,
-  loop: 1,
+  loop: true,
 });
 
 
