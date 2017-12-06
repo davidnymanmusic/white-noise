@@ -308,21 +308,13 @@ document.querySelector('#playToggle2').addEventListener('change', function(e) {
     // rootChakra2.start();
     // rootChakra3.start();
   } else {
-    rootChakra.stop();
-    // rootChakra2.stop();
-    rootChakra3.stop();
-    thirdEye.stop();
-    // thirdEye2.stop();
-    sacral.stop();
-    // sacral2.stop();
-    solar.stop();
-    // solar2.stop();
-    heart.stop();
-    // heart2.stop();
-    throat.stop();
-    // throat2.stop();
-    crown.stop();
-    // crown2.stop();
+    rootChakra.stop()
+    thirdEye.stop()
+    sacral.stop()
+    solar.stop()
+    heart.stop()
+    throat.stop()
+    crown.stop()
   }
 });
 
@@ -340,6 +332,7 @@ document.querySelector('#playToggle3').addEventListener('change', function(e) {
     sound.stop();
   }
 });
+
 
 
 document.querySelector('#chakraToggle').addEventListener('change', function(e) {

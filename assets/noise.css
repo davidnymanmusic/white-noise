@@ -47,6 +47,10 @@ p {
   background-color: rgb(195, 40, 0);
 }
 
+.rootHover {
+  background-color: rgb(195, 40, 0);
+}
+
 #sacral:hover {
   background-color: rgb(227, 106, 21);
 }
