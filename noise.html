@@ -16,7 +16,7 @@
 <body id="body" class="dark-mode">
   <!-- <input type="checkbox" id="checkbox1">checkbox</input>
   <button type="button" onClick="save()">save</button> -->
-<button id="panicButton" type="button" onClick="save()"><a href="javascript:location.reload(true)" id="resfresh">PANIC</a></button>
+  <button id="panicButton" type="button" onClick="save()"><a href="javascript:location.reload(true)" id="resfresh">PANIC</a></button>
   <div id="Content" class="FullScreen">
     <nav class="menu">
       <ul class="active">
@@ -48,7 +48,7 @@
         <br>
         <input id="volume1" type="range" max="0" min="-50" value="-25" step="0.025">
         <br>
-        <p data-tooltip="The Muladhara, or Root Chakra, resonates with the natural sound of thunder, and the vibration of earthquakes.">Chakra</p>
+        <p id="chakraColor" data-tooltip="The Muladhara, or Root Chakra, resonates with the natural sound of thunder, and the vibration of earthquakes.">Chakra</p>
         <!-- "A chakra is a center of activity that receives and expresses life force energy.
         We hold every thought, emotion and feeling in one of our seven chakras and they become lodged until they are released.
         Each of the seven musical notes and seven colors corresponding to the chakras have emotional and physical issues attached to them.
@@ -76,7 +76,7 @@
     </div>
 
     <div id="container2">
-      <span><button id="buttonSettings">CUSTOMIZE</button></span>
+      <span data-tooltip="adjust noise and chakras"><button id="buttonSettings">CUSTOMIZE</button></span>
       <div id="set">
         <p data-tooltip="Concentration">White</p>
         <label class="switch"><input type='checkbox' id='playToggleWhite' checked><div></div></label>
@@ -89,20 +89,34 @@
         <br>
         <p>CHAKRAS</p>
         <br>
-        <p data-tooltip="Survival">ROOT</p>
+        <p id="root" class="chakraStyle" data-tooltip="Survival">ROOT</p>
         <label class="switch"><input type='checkbox' id='chakraToggle' checked><div></div></label>
         <br>
-        <p data-tooltip="Life energy, creativity">SACRAL</p>
+        <p id="sacral" class="chakraStyle" data-tooltip="Life energy, creativity">SACRAL</p>
         <label class="switch"><input type='checkbox' id='chakraToggle2'><div></div></label>
         <br>
-        <p data-tooltip="Personal power, self-esteem">solar</p>
+        <p id="solar" class="chakraStyle" data-tooltip="Personal power, self-esteem">solar</p>
         <label class="switch"><input type='checkbox' id='chakraToggle3'><div></div></label>
         <br>
-        <p data-tooltip="Insight, intellect">THIRD EYE</p>
+        <p id="heart" class="chakraStyle" data-tooltip="Unconditional love, healing">heart</p>
+        <label class="switch"><input type='checkbox' id='chakraToggle4'><div></div></label>
+        <br>
+        <p id="throat" class="chakraStyle" data-tooltip="Communication, self-expression">throat</p>
+        <label class="switch"><input type='checkbox' id='chakraToggle5'><div></div></label>
+        <br>
+        <p id="third" class="chakraStyle" data-tooltip="Insight, intellect">THIRD EYE</p>
         <label class="switch"><input type='checkbox' id='chakraToggle1'><div></div></label>
+        <br>
+        <p id="crown" class="chakraStyle" data-tooltip="Transcendence, pure consciousness">Crown</p>
+        <label class="switch"><input type='checkbox' id='chakraToggle6'><div></div></label>
         <br>
 
       </div>
+    </div>
+    <span data-tooltip="Noise will turn off after selected time"><button id="timer">TIMER</button></span>
+    <div id="timerSet">
+      <p><button id="25" class="minutes" onclick="setTimeout(myFunction, 2500000), startTimer();"></button></p>
+      <!-- <select class="1-100"></select> -->
     </div>
     <div id="footer">
       © David Nyman
