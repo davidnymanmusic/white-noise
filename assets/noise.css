@@ -468,6 +468,7 @@ h3:hover {
   transition: 1s;
   cursor: progress;
   margin-top: 18px;
+  display: none;
 }
 
 #timer:focus {

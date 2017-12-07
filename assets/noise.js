@@ -308,13 +308,13 @@ document.querySelector('#playToggle2').addEventListener('change', function(e) {
     // rootChakra2.start();
     // rootChakra3.start();
   } else {
-    rootChakra.stop()
-    thirdEye.stop()
-    sacral.stop()
-    solar.stop()
-    heart.stop()
-    throat.stop()
-    crown.stop()
+    rootChakra.stop();
+    thirdEye.stop();
+    sacral.stop();
+    solar.stop();
+    heart.stop();
+    throat.stop();
+    crown.stop();
   }
 });
 
