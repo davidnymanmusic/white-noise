@@ -123,27 +123,27 @@ $(function(){
 
 
 
-document.getElementById('25').innerHTML =
-  "25" + ":" + "00";
-
-function startTimer() {
-  var presentTime = document.getElementById('25').innerHTML;
-  var timeArray = presentTime.split(/[:]+/);
-  var m = timeArray[0];
-  var s = checkSecond((timeArray[1] - 1));
-  if(s==59){m=m-1}
-  //if(m<0){alert('timer completed')}
-
-  document.getElementById('25').innerHTML =
-    m + ":" + s;
-  setTimeout(startTimer, 1000);
-}
-
-function checkSecond(sec) {
-  if (sec < 10 && sec >= 0) {sec = "0" + sec}; // add zero in front of numbers < 10
-  if (sec < 0) {sec = "59"};
-  return sec;
-}
+// document.getElementById('25').innerHTML =
+//   "25" + ":" + "00";
+//
+// function startTimer() {
+//   var presentTime = document.getElementById('25').innerHTML;
+//   var timeArray = presentTime.split(/[:]+/);
+//   var m = timeArray[0];
+//   var s = checkSecond((timeArray[1] - 1));
+//   if(s==59){m=m-1}
+//   //if(m<0){alert('timer completed')}
+//
+//   document.getElementById('25').innerHTML =
+//     m + ":" + s;
+//   setTimeout(startTimer, 1000);
+// }
+//
+// function checkSecond(sec) {
+//   if (sec < 10 && sec >= 0) {sec = "0" + sec}; // add zero in front of numbers < 10
+//   if (sec < 0) {sec = "59"};
+//   return sec;
+// }
 
 
 
@@ -167,6 +167,7 @@ var pinkNoise = new Tone.Noise({
   "type": "pink",
   "volume": -20,
 }).toMaster();
+
 document.querySelector('#playToggle1').addEventListener('change', function(e) {
   if (e.target.checked) {
     pinkNoise.start()
@@ -195,6 +196,7 @@ var brownNoise = new Tone.Noise({
   "type": "brown",
   "volume": -20,
 }).toMaster();
+
 document.querySelector('#playToggleBrown').addEventListener('change', function(e) {
   if (e.target.checked) {
     brownNoise.start()
@@ -203,13 +205,17 @@ document.querySelector('#playToggleBrown').addEventListener('change', function(e
   }
 });
 
-document.querySelector('#playTogglePink').addEventListener('change', function(e) {
-  if (e.target.checked) {
-    pinkNoise.start()
-  } else {
-    pinkNoise.stop()
+document.querySelector('#playTogglePink').addEventListener('change', handlePlay(pinkNoise));
+
+function handlePlay(noise) {
+  return function(e) {
+    if (e.target.checked) {
+      noise.start()
+    } else {
+      noise.stop()
+    }
   }
-});
+}
 
 // var rootChakra = new Tone.Oscillator({
 //   "type": "sine",
